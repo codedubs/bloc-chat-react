@@ -33,13 +33,16 @@ class RoomList extends Component {
   render() {
     return (
 
-        <section>
-
+        <section className="sidenav">
+            <li className="sideheader"><h1><strong>Bloc Chat </strong></h1></li>
           {
             this.state.rooms.map( (room, key) =>
+              <ul>
 
-            <span key={key}> {this.state.rooms[key].name } </span>
-
+                <li>
+                  <span className="rooms" key={key}> {this.state.rooms[key].name } </span>
+                </li>
+              </ul>
 
           )}
 

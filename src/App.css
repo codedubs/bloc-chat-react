@@ -1,12 +1,11 @@
 .App {
   text-align: center;
+
+
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-}
 
+/*
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -17,16 +16,43 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
+*/
 
 .App-link {
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* The sidenav */
+.sidenav {
+  height: 100%;
+  width: 400px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: grey;
+  overflow-x: hidden;
+  padding-top: 20px;
+
+  text-align: left;
+}
+
+.sideheader {
+  list-style: none;
+  color: white;
+  padding-left: 40px;
+  padding-top: 50px;
+
+}
+.sidenav ul li {
+  list-style: none;
+  color: white;
+  margin-top: 50px;
+  padding-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+}
+/* Page content */
+.main {
+  margin-left: 400px; /* Same as the width of the sidenav */
 }
