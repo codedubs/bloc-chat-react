@@ -37,10 +37,9 @@ class RoomList extends Component {
             <li className="sideheader"><h1><strong>Bloc Chat </strong></h1></li>
           {
             this.state.rooms.map( (room, key) =>
-              <ul>
-
+              <ul className="rooms" key={key}>
                 <li>
-                  <span className="rooms" key={key}> {this.state.rooms[key].name } </span>
+                  <span> {this.state.rooms[key].name } </span>
                 </li>
               </ul>
 
