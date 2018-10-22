@@ -60,9 +60,21 @@
 }
 
 
+
+.backdrop  {
+  position: relative;
+  top: 50px;
+  left: 100px;
+  height: 30%;
+  width: 40%;
+  background-color:  orange;
+  text-align: left;
+}
+
 .sidenav button {
 
 }
+
 #roomForm {
   padding-left: 90px;
   padding-top: 50px;
@@ -72,15 +84,5 @@
 #roomInput {
   width: 300px;
 
-}
 
-
-.backdrop  {
-  position: relative;
-  top: 50px;
-  left: 100px;
-  height: 30%;
-  width: 40%;
-  background-color:  grey;
-  text-align: left;
 }

@@ -14,8 +14,6 @@ class Modal extends Component {
   return (
       <div className="backdrop" >
 
-
-
         <form id="roomForm" onSubmit={this.props.handleSubmit}>
           <h3><strong>Create a new room</strong></h3>
           <label for="roomInput"> <h5>Enter a room name </h5></label> <br></br>

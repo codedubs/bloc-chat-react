@@ -24,14 +24,19 @@ class RoomList extends Component {
 
 handleSubmit(e) {
   e.preventDefault();
-  if (!this.state.rooms) { return }
   const newRoom = { name: this.state.newRoomName };
-  this.setState({ rooms: [...this.state.rooms, newRoom] });
+  if (!this.state.rooms) {
+    return
+  } else if (this.state.rooms) {
+    this.setState({ rooms: [...this.state.rooms, newRoom] });
+    this.setState({ newRoomName: "" });
+    this.setState({ isOpen: !this.state.isOpen });
+  }
 }
 
 
 createRoom(e) {
-  this.setState({ newRoomName: e.target.value })
+  this.setState({ newRoomName: e.target.value });
 }
 
 
@@ -42,18 +47,17 @@ toggleModal() {
 
 componentDidMount() {
   this.roomsRef.on('child_added', snapshot => {
-  const room = snapshot.val();
-  room.key = snapshot.key;
-  console.log(snapshot);
-  this.setState({ rooms: this.state.rooms.concat( room ) });
-    });
-  }
+    const room = snapshot.val();
+    room.key = snapshot.key;
+    console.log(snapshot);
+    this.setState({ rooms: this.state.rooms.concat( room ) });
+  });
+}
 
 
 
 
 render() {
-
 
     return (
       <section className="roomlist">
@@ -63,19 +67,17 @@ render() {
             <li className="sideheader"><h1><strong> Bloc Chat </strong></h1><button onClick={ () => this.toggleModal() }> New Room </button></li>
 
 
-
           {
             this.state.rooms.map( (room, key) =>
-              <ul>
+              <ul className="rooms" key={key}>
                 <li>
-                  <span className="rooms" key={key}> { this.state.rooms[key].name } </span>
+                  <span> { this.state.rooms[key].name } </span>
                 </li>
               </ul>
           )}
         </section>
 
         <section className="main">
-
 
 
             <Modal show={ this.state.isOpen }
