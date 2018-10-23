@@ -3,7 +3,8 @@ import logo from './logo.svg';
 import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
-
+import MessageList from './components/MessageList';
+import ActiveRoom from './components/ActiveRoom';
 
 
 
@@ -22,20 +23,36 @@ firebase.initializeApp(config);
 
 class App extends Component {
 
+  constructor(props) {
+    super(props);
+
+    this.state = {
+
+
+
+
+    }
+  }
 
   render() {
     return (
       <div className="App">
-        <header className="App-header">
+        <header className="App-Nav">
 
+          <RoomList
+            firebase = { firebase }
+          />
 
         </header>
 
-        <RoomList
-
+        <ActiveRoom
           firebase = { firebase }
+        />
 
-         />
+        <MessageList
+          firebase = { firebase }
+        />
+
 
       </div>
     );

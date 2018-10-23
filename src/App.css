@@ -55,11 +55,17 @@
 /* Page content */
 .main {
   margin-left: 400px; /* Same as the width of the sidenav */
-
-  height: 900px;
+  text-align: left;
+background-color: orange;
 }
 
+.active-room {
+  background-color: red;
+}
 
+.roomlist {
+  background-color: yellow;
+}
 
 .backdrop  {
   position: relative;
@@ -75,6 +81,9 @@
 
 }
 
+.rooms li a {
+  color: white;
+}
 #roomForm {
   padding-left: 90px;
   padding-top: 50px;
