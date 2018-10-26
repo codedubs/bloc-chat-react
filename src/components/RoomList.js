@@ -32,7 +32,6 @@ handleSubmit(e) {
     this.roomsRef.push({ name: this.state.newRoomName })
     this.setState({ newRoomName: "" });
     this.setState({ isOpen: !this.state.isOpen });
-
   }
 }
 
@@ -64,18 +63,17 @@ render() {
       <section className="roomlist">
 
         <section className="sidenav">
-
           <li className="sideheader"><h1><strong> Bloc Chat </strong></h1><button onClick={ () => this.toggleModal() }> New Room </button></li>
+            <ul className="rooms" >
+              {
+                this.state.rooms.map( (room, key) =>
 
-          {
-            this.state.rooms.map( (room, key) =>
-              <ul className="rooms" key={key}>
-              <li>
-                <a href=''> { this.state.rooms[key].name } </a>
-              </li>
-              </ul>
-          )}
+                    <li className="keys" key={key} onClick={ () => this.props.setActiveRoom(room.key, room.name)}  >
+                      { this.state.rooms[key].name }
+                    </li>
 
+              )}
+            </ul>
         </section>
 
       <section className="main">

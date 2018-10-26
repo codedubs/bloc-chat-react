@@ -4,6 +4,10 @@
 
 }
 
+.rooms li:hover {
+  background-color: red;
+  cursor: pointer;
+}
 
 /*
 .App-header {
@@ -56,7 +60,7 @@
 .main {
   margin-left: 400px; /* Same as the width of the sidenav */
   text-align: left;
-background-color: orange;
+  background-color: orange;
 }
 
 .active-room {
@@ -81,9 +85,19 @@ background-color: orange;
 
 }
 
+.messages li {
+  list-style: none;
+
+}
+
+.username {
+  font-weight: bold;
+  font-size: 18px;
+}
 .rooms li a {
   color: white;
 }
+
 #roomForm {
   padding-left: 90px;
   padding-top: 50px;

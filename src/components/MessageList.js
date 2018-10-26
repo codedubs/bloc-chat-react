@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ActiveRoom from './ActiveRoom';
 
 
 
@@ -25,46 +24,37 @@ class MessageList extends Component {
       console.log(snapshot);
       this.setState({ messages: this.state.messages.concat(messages) });
     });
+
+
   }
 
 
 
-    render() {
 
-
-                  {
-                    this.state.messages.map( (message, key) =>
-
-                      <ul className="message" key={key}   >
-                        <li>
-                          { this.state.messages[key].username }
-                        </li>
-                        <li>
-                          { this.state.messages[key].content }
-                        </li>
-                        <li>
-                          { this.state.messages[key].sentAt }
-                        </li>
-                        <li> {this.state.messages[key].roomId } </li>
-                      </ul>
-                    ).filter( (message, key) =>
-                      <ul className="filter-message" key={key} >
-                        <li>
-                      { this.state.messages[key].roomId   }
-
-                        </li>
-                      </ul>
-                  )}
+  render() {
 
       return(
 
-          <section className="main">
-            <section className="message-list">
+          <section className="message-room">
+          <span className="roomNum"><h4> {this.props.activeName} </h4></span>
 
+              { this.state.messages.map( (message, key) =>
+                <ul className="messages" key ={ key}>
+                  <li className="username">
+                    {this.state.messages[key].username}
+                  </li>
+                  <li className="content">
+                    {this.state.messages[key].content}
+                  </li>
+                  <li className="time">
+                    {this.state.messages[key].sentAt}
+                  </li>
+                </ul>
+                ).filter( (message,key) =>
+                this.state.messages[key].roomId === this.props.activeRoom
+                )
+              }
 
-
-
-          </section>
         </section>
 
       )

@@ -4,7 +4,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
-import ActiveRoom from './components/ActiveRoom';
+
 
 
 
@@ -28,32 +28,50 @@ class App extends Component {
 
     this.state = {
 
-
-
+      activeRoom: " ",
+      activeName: " "
 
     }
+
+
   }
 
+
+  setActiveRoom = (roomKey, roomName) => {
+    this.setState({ activeRoom: roomKey });
+    this.setState({ activeName: roomName });
+
+  }
+
+
+
+
+
   render() {
+    console.log(this.state.activeRoom)
     return (
       <div className="App">
         <header className="App-Nav">
 
           <RoomList
             firebase = { firebase }
+            setActiveRoom = { this.setActiveRoom }
+            activeRoom = { this.state.activeRoom }
+
           />
 
         </header>
+        <section className="main">
 
-        <ActiveRoom
-          firebase = { firebase }
-        />
+          <MessageList
+            firebase = { firebase }
+            activeRoom = { this.state.activeRoom }
+            activeName = { this.state.activeName }
 
-        <MessageList
-          firebase = { firebase }
-        />
+          />
 
 
+        </section>
       </div>
     );
   }
