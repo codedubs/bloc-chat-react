@@ -29,7 +29,6 @@ handleSubmit(e) {
     return
   } else if (this.state.rooms) {
     this.setState({ rooms: [...this.state.rooms, newRoom] });
-    this.roomsRef.push({ name: this.state.newRoomName })
     this.setState({ newRoomName: "" });
     this.setState({ isOpen: !this.state.isOpen });
   }
@@ -50,6 +49,7 @@ componentDidMount() {
   this.roomsRef.on('child_added', snapshot => {
     const room = snapshot.val();
     room.key = snapshot.key;
+    console.log(snapshot);
     this.setState({ rooms: this.state.rooms.concat( room ) });
   });
 }
@@ -63,29 +63,31 @@ render() {
       <section className="roomlist">
 
         <section className="sidenav">
-          <li className="sideheader"><h1><strong> Bloc Chat </strong></h1><button onClick={ () => this.toggleModal() }> New Room </button></li>
-            <ul className="rooms" >
+
+            <li className="sideheader"><h1><strong> Bloc Chat </strong></h1><button onClick={ () => this.toggleModal() }> New Room </button></li>
+              <ul className="rooms" >
               {
                 this.state.rooms.map( (room, key) =>
 
                     <li className="keys" key={key} onClick={ () => this.props.setActiveRoom(room.key, room.name)}  >
                       { this.state.rooms[key].name }
                     </li>
-
               )}
-            </ul>
+              </ul>
+
         </section>
 
-      <section className="main">
+        <section className="main">
 
-          <Modal show={ this.state.isOpen }
-            onClose={ () => this.toggleModal() }
-            newRoomName={ this.state.newRoomName }
-            createRoom= { (e)=> this.createRoom(e) }
-            handleSubmit={ (e) => this.handleSubmit(e) }
-            >
 
-          </Modal>
+            <Modal show={ this.state.isOpen }
+              onClose={ () => this.toggleModal() }
+              newRoomName={ this.state.newRoomName }
+              createRoom= { (e)=> this.createRoom(e) }
+              handleSubmit={ (e) => this.handleSubmit(e) }
+              >
+
+            </Modal>
       </section>
     </section>
     );

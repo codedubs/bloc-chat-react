@@ -4,7 +4,7 @@ import './App.css';
 import * as firebase from 'firebase';
 import RoomList from './components/RoomList';
 import MessageList from './components/MessageList';
-
+import User from './components/User';
 
 
 
@@ -29,10 +29,10 @@ class App extends Component {
     this.state = {
 
       activeRoom: " ",
-      activeName: " "
+      activeName: " ",
+      user: " "
 
     }
-
 
   }
 
@@ -40,10 +40,12 @@ class App extends Component {
   setActiveRoom = (roomKey, roomName) => {
     this.setState({ activeRoom: roomKey });
     this.setState({ activeName: roomName });
-
   }
 
-
+  setUser = (user) => {
+    this.setState({ user: user });
+    console.log(this.state.user)
+  }
 
 
 
@@ -57,7 +59,6 @@ class App extends Component {
             firebase = { firebase }
             setActiveRoom = { this.setActiveRoom }
             activeRoom = { this.state.activeRoom }
-
           />
 
         </header>
@@ -67,9 +68,13 @@ class App extends Component {
             firebase = { firebase }
             activeRoom = { this.state.activeRoom }
             activeName = { this.state.activeName }
-
           />
 
+          <User
+            firebase = { firebase }
+            setUser = { this.setUser }
+            user = { this.state.user }
+          />
 
         </section>
       </div>

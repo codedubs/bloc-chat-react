@@ -24,8 +24,6 @@ class MessageList extends Component {
       console.log(snapshot);
       this.setState({ messages: this.state.messages.concat(messages) });
     });
-
-
   }
 
 

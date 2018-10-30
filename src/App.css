@@ -94,6 +94,10 @@
   font-weight: bold;
   font-size: 18px;
 }
+
+#usernameForm {
+  padding-top: 40px;
+}
 .rooms li a {
   color: white;
 }
