@@ -21,6 +21,7 @@ class User extends Component {
 
     this.props.firebase.auth().onAuthStateChanged( user => {
       this.props.setUser(user);
+
     });
   }
 
@@ -57,7 +58,7 @@ class User extends Component {
 
     return(
 
-      <span className="main">
+      <section className="sign-in">
         <p> {this.props.user ? this.props.user.displayName : "GUEST" } is logged in</p>
         <br></br>
         <button type="button" className="signin-button" onClick={ () => this.googleSignIn()} >
@@ -66,8 +67,7 @@ class User extends Component {
         <button type="button" className="signin-button" onClick={ () => this.googleSignOut() }>
           Google sign out
         </button>
-
-      </span>
+      </section>
     )
   }
 }

@@ -64,18 +64,19 @@ class App extends Component {
         </header>
         <section className="main">
 
-          <MessageList
-            firebase = { firebase }
-            activeRoom = { this.state.activeRoom }
-            activeName = { this.state.activeName }
-          />
-
           <User
             firebase = { firebase }
             setUser = { this.setUser }
             user = { this.state.user }
           />
 
+          <MessageList
+            firebase = { firebase }
+            activeRoom = { this.state.activeRoom }
+            activeName = { this.state.activeName }
+            user = { this.state.user }
+          />
+          
         </section>
       </div>
     );
