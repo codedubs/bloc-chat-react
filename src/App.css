@@ -1,11 +1,10 @@
 .App {
   text-align: center;
 
-
 }
 
 .rooms li:hover {
-  background-color: red;
+  color: red;
   cursor: pointer;
 }
 
@@ -25,7 +24,6 @@
   background-color: grey;
   overflow-x: hidden;
   padding-top: 20px;
-
   text-align: left;
 }
 
@@ -48,14 +46,14 @@
 .main {
   margin-left: 400px; /* Same as the width of the sidenav */
   text-align: left;
-  background-color: orange;
+
 }
 
 .sign-in {
   text-align: right;
   margin-right: 60px;
   margin-top: 40px;
-  background-color: red;
+
 }
 
 .message-room {
@@ -67,22 +65,18 @@
 }
 
 .roomNum h4 {
-  background-color: red;
+
   padding-left: 40px;
   padding-bottom: 40px;
   font-weight: bold;
 }
 
-.active-room {
-  background-color: red;
-}
 
-.roomlist {
-  background-color: yellow;
-}
 
-.textbar {
-  padding-top: 10px;
+
+#textbar {
+  padding-top: 400px;
+  
 
 }
 
@@ -91,12 +85,12 @@
 }
 
 .message-area ul li {
-  background-color: yellow;
+
   padding-bottom: 10px;
 }
 
 #time {
-  background-color: red;
+
   text-align: right;
   padding-right: 60px;
   margin-top: -50px;
@@ -136,6 +130,7 @@
 #usernameForm {
   padding-top: 40px;
 }
+
 .rooms li a {
   color: white;
 }

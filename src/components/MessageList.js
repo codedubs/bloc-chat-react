@@ -44,7 +44,7 @@ class MessageList extends Component {
         this.messagesRef.push({
           content: this.state.newMessage,
           roomId: this.props.activeRoom,
-          username: this.props.user.displayName,
+          username: this.props.user? this.props.user.displayName : "Guest",
           sentAt: this.props.firebase.database.ServerValue.TIMESTAMP });
         console.log(this.state.messages)
         console.log(this.props.activeRoom)
@@ -68,6 +68,7 @@ class MessageList extends Component {
 
 
   render() {
+
 
       return(
 
@@ -93,7 +94,7 @@ class MessageList extends Component {
                 )
               }
             </section>
-        <section className="textbar">
+        <section id="textbar">
           <input type='text' className='message' class="form-control" value={ this.state.newMessage } placeholder="Type your message..." onChange={ (e) => this.createMessage(e) }/>
           <button type="button" className="send-button" onClick={ () => this.sendMessage() } > Send </button>
         </section>

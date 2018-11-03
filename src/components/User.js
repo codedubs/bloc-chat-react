@@ -32,12 +32,7 @@ class User extends Component {
     this.props.firebase
     .auth()
     .signInWithPopup(provider)
-    .then( result => {
-      var token = result.credential.accessToken;
-      var user = result.user;})
-    .catch( error => {
-      this.setState({ error: 'Authentication failed.'})
-    });
+
   }
 
   googleSignOut = () => {
