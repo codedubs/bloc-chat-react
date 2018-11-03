@@ -47,10 +47,15 @@ class App extends Component {
     console.log(this.state.user)
   }
 
+  componentWillMount = (roomloadname) => {
+    this.setState({ activeName: roomloadname })
+  }
+
 
 
   render() {
     console.log(this.state.activeRoom)
+    console.log(this.state.activeName)
     return (
       <div className="App">
         <header className="App-Nav">
@@ -59,6 +64,7 @@ class App extends Component {
             firebase = { firebase }
             setActiveRoom = { this.setActiveRoom }
             activeRoom = { this.state.activeRoom }
+            componentWillMount = {this.componentWillMount}
           />
 
         </header>
@@ -76,7 +82,7 @@ class App extends Component {
             activeName = { this.state.activeName }
             user = { this.state.user }
           />
-          
+
         </section>
       </div>
     );

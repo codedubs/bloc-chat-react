@@ -74,7 +74,8 @@ class MessageList extends Component {
 
           <section className="message-room">
             <section className="message-area">
-            <span className="roomNum"><h4> {this.props.activeName} </h4></span>
+
+            <span className="roomNum"><h4> {this.props.activeRoom ? this.props.activeName : this.props.activeRoom} </h4></span>
 
                 { this.state.messages.map( (message, key) =>
                   <ul className="messages" key ={ key}>

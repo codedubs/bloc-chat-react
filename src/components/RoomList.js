@@ -57,6 +57,10 @@ componentDidMount() {
     console.log(snapshot);
     this.setState({ rooms: this.state.rooms.concat( room ) });
 
+  console.log(this.state.rooms[0].name)
+  /* loading room name */
+  this.props.componentWillMount(this.state.rooms[0].name)
+
   });
 }
 
