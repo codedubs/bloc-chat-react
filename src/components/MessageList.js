@@ -96,7 +96,7 @@ class MessageList extends Component {
               }
             </section>
         <section id="textbar">
-          <input type='text' className='message' class="form-control" value={ this.state.newMessage } placeholder="Type your message..." onChange={ (e) => this.createMessage(e) }/>
+          <input type='text' className='message' className="form-control" value={ this.state.newMessage } placeholder="Type your message..." onChange={ (e) => this.createMessage(e) }/>
           <button type="button" className="send-button" onClick={ () => this.sendMessage() } > Send </button>
         </section>
     </section>
